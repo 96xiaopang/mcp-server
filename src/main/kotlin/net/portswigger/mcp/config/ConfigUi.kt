@@ -43,7 +43,7 @@ class ConfigUi(private val config: McpConfig, private val providers: List<Provid
     private val validationErrorLabel = WarningLabel()
     private val hostField = JTextField(15)
     private val portField = JTextField(5)
-    private val reinstallNotice = WarningLabel("Make sure to reinstall after changing server settings")
+    private val reinstallNotice = WarningLabel("更改服务器设置后请确保重新安装")
 
     private lateinit var serverConfigurationPanel: ServerConfigurationPanel
     private lateinit var advancedOptionsPanel: AdvancedOptionsPanel
@@ -138,12 +138,12 @@ class ConfigUi(private val config: McpConfig, private val providers: List<Provid
                     enabledToggle.setState(false, animate = false)
 
                     val friendlyMessage = when (state.exception) {
-                        is UnresolvedAddressException -> "Unable to resolve address"
+                        is UnresolvedAddressException -> "无法解析地址"
                         else -> state.exception.message ?: state.exception.javaClass.simpleName
                     }
 
                     Dialogs.showMessageDialog(
-                        panel, "Failed to start Burp MCP Server: $friendlyMessage", ERROR_MESSAGE
+                        panel, "启动 Burp MCP 服务器失败: $friendlyMessage", ERROR_MESSAGE
                     )
                 }
             }
@@ -156,13 +156,13 @@ class ConfigUi(private val config: McpConfig, private val providers: List<Provid
         val leftPanel = JPanel(GridBagLayout())
 
         val headerBox = createVerticalBox().apply {
-            add(JLabel("Burp MCP Server").apply {
+            add(JLabel("Burp MCP 服务器").apply {
                 font = Design.Typography.headlineMedium
                 foreground = Design.Colors.onSurface
                 alignmentX = CENTER_ALIGNMENT
             })
             add(createVerticalStrut(Design.Spacing.MD))
-            add(JLabel("Burp MCP Server exposes Burp tooling to AI clients.").apply {
+            add(JLabel("Burp MCP 服务器将 Burp 工具暴露给 AI 客户端。").apply {
                 font = Design.Typography.bodyLarge
                 foreground = Design.Colors.onSurfaceVariant
                 alignmentX = CENTER_ALIGNMENT
@@ -170,7 +170,7 @@ class ConfigUi(private val config: McpConfig, private val providers: List<Provid
             add(createVerticalStrut(Design.Spacing.MD))
             add(
                 Anchor(
-                    text = "Learn more about the Model Context Protocol",
+                    text = "了解更多关于模型上下文协议",
                     url = "https://modelcontextprotocol.io/introduction"
                 ).apply { alignmentX = CENTER_ALIGNMENT })
         }

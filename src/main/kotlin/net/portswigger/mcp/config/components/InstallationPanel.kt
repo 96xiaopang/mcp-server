@@ -44,7 +44,7 @@ class InstallationPanel(
     }
 
     private fun buildPanel() {
-        add(Design.createSectionLabel("Installation"))
+        add(Design.createSectionLabel("安装"))
         add(createVerticalStrut(Design.Spacing.SM))
 
         val installOptions = JPanel().apply {
@@ -113,7 +113,7 @@ class InstallationPanel(
                 CoroutineScope(Dispatchers.Swing).launch {
                     Dialogs.showMessageDialog(
                         parentComponent,
-                        "Failed to install for ${provider.name}: ${e.message ?: e.javaClass.simpleName}",
+                        "安装到 ${provider.name} 失败: ${e.message ?: e.javaClass.simpleName}",
                         ERROR_MESSAGE
                     )
                 }
@@ -127,7 +127,7 @@ class InstallationPanel(
             isOpaque = false
             add(
                 Anchor(
-                    text = "Manual install steps",
+                    text = "手动安装步骤",
                     url = "https://github.com/PortSwigger/mcp-server?tab=readme-ov-file#manual-installations"
                 )
             )

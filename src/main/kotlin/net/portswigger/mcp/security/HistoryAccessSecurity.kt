@@ -21,19 +21,19 @@ class SwingHistoryAccessApprovalHandler : HistoryAccessApprovalHandler {
         return suspendCoroutine { continuation ->
             SwingUtilities.invokeLater {
                 val historyTypeName = when (accessType) {
-                    HistoryAccessType.HTTP_HISTORY -> "HTTP history"
-                    HistoryAccessType.WEBSOCKET_HISTORY -> "WebSocket history"
+                    HistoryAccessType.HTTP_HISTORY -> "HTTP 历史记录"
+                    HistoryAccessType.WEBSOCKET_HISTORY -> "WebSocket 历史记录"
                 }
 
                 val message = buildString {
-                    appendLine("An MCP client is requesting access to your Burp Suite $historyTypeName.")
+                    appendLine("MCP 客户端请求访问您的 Burp Suite $historyTypeName。")
                     appendLine()
-                    appendLine("This may include sensitive data from previous web sessions.")
-                    appendLine("Choose how you would like to respond:")
+                    appendLine("这可能包含以前 Web 会话的敏感数据。")
+                    appendLine("选择您的响应方式：")
                 }
 
                 val options = arrayOf(
-                    "Allow Once", "Always Allow $historyTypeName", "Deny"
+                    "允许一次", "始终允许 $historyTypeName", "拒绝"
                 )
 
                 val burpFrame = findBurpFrame()

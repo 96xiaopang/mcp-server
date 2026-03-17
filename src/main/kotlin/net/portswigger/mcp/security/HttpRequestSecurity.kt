@@ -20,14 +20,14 @@ class SwingUserApprovalHandler : UserApprovalHandler {
         return suspendCoroutine { continuation ->
             SwingUtilities.invokeLater {
                 val message = buildString {
-                    appendLine("An MCP client is requesting to send an HTTP request to:")
+                    appendLine("MCP 客户端请求发送 HTTP 请求到：")
                     appendLine()
-                    appendLine("Target: $hostname:$port")
+                    appendLine("目标: $hostname:$port")
                     appendLine()
                 }
 
                 val options = arrayOf(
-                    "Allow Once", "Always Allow Host", "Always Allow Host:Port", "Deny"
+                    "允许一次", "始终允许主机", "始终允许主机:端口", "拒绝"
                 )
 
                 val burpFrame = findBurpFrame()

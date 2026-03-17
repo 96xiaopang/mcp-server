@@ -12,7 +12,7 @@ import net.portswigger.mcp.providers.ProxyJarManager
 class ExtensionBase : BurpExtension {
 
     override fun initialize(api: MontoyaApi) {
-        api.extension().setName("Burp MCP Server")
+        api.extension().setName("Burp MCP 服务器")
 
         val config = McpConfig(api.persistence().extensionData(), api.logging())
         val serverManager = KtorServerManager(api)

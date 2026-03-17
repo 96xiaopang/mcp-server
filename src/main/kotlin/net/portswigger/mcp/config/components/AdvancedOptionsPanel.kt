@@ -39,11 +39,11 @@ class AdvancedOptionsPanel(
     }
 
     private fun buildPanel() {
-        add(Design.createSectionLabel("Advanced Options"))
+        add(Design.createSectionLabel("高级选项"))
         add(createVerticalStrut(Design.Spacing.MD))
 
         val formPanel = createFormPanel(
-            "Server host:" to hostField, "Server port:" to portField
+            "服务器主机：" to hostField, "服务器端口：" to portField
         )
         add(formPanel)
     }

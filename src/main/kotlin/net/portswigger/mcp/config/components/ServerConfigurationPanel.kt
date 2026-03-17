@@ -40,7 +40,7 @@ class ServerConfigurationPanel(
     }
 
     private fun buildPanel() {
-        add(Design.createSectionLabel("Server Configuration"))
+        add(Design.createSectionLabel("服务器配置"))
         add(createVerticalStrut(Design.Spacing.MD))
 
         val enabledPanel = createEnabledPanel()
@@ -48,15 +48,15 @@ class ServerConfigurationPanel(
         add(createVerticalStrut(Design.Spacing.MD))
 
         val configEditingToolingCheckBox = createCheckBoxWithSubtitle(
-            "Enable tools that can edit your config",
-            "WARNING: Can execute code",
+            "启用可以编辑配置的工具",
+            "警告：可能执行代码",
             config.configEditingTooling
         ) { config.configEditingTooling = it }
         add(configEditingToolingCheckBox)
         add(createVerticalStrut(Design.Spacing.MD))
 
         val httpRequestApprovalCheckBox = createStandardCheckBox(
-            "Require approval for HTTP requests", config.requireHttpRequestApproval
+            "HTTP 请求需要审批", config.requireHttpRequestApproval
         ) { config.requireHttpRequestApproval = it }
         add(httpRequestApprovalCheckBox)
         add(createVerticalStrut(Design.Spacing.MD))
@@ -66,13 +66,13 @@ class ServerConfigurationPanel(
         add(createVerticalStrut(Design.Spacing.SM))
 
         alwaysAllowHttpHistoryCheckBox = createIndentedCheckBox(
-            "Always allow HTTP history access", config.alwaysAllowHttpHistory, config.requireHistoryAccessApproval
+            "始终允许 HTTP 历史记录访问", config.alwaysAllowHttpHistory, config.requireHistoryAccessApproval
         ) { config.alwaysAllowHttpHistory = it }
         add(alwaysAllowHttpHistoryCheckBox)
         add(createVerticalStrut(Design.Spacing.SM))
 
         alwaysAllowWebSocketHistoryCheckBox = createIndentedCheckBox(
-            "Always allow WebSocket history access",
+            "始终允许 WebSocket 历史记录访问",
             config.alwaysAllowWebSocketHistory,
             config.requireHistoryAccessApproval
         ) { config.alwaysAllowWebSocketHistory = it }
@@ -86,7 +86,7 @@ class ServerConfigurationPanel(
             isOpaque = false
             alignmentX = LEFT_ALIGNMENT
         }
-        enabledPanel.add(JLabel("Enabled").apply {
+        enabledPanel.add(JLabel("启用").apply {
             font = Design.Typography.bodyLarge
             foreground = Design.Colors.onSurface
         })
@@ -97,7 +97,7 @@ class ServerConfigurationPanel(
 
     private fun createHistoryAccessApprovalCheckBox(): JCheckBox {
         return createStandardCheckBox(
-            "Require approval for history access", config.requireHistoryAccessApproval
+            "历史记录访问需要审批", config.requireHistoryAccessApproval
         ) { enabled ->
             config.requireHistoryAccessApproval = enabled
             if (!enabled) {
